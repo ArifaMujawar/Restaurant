@@ -7,6 +7,31 @@
   pointer-events: none;
 }
 
+.restaurant img{
+  width: 300px;
+  height:300px;
+}
+.restaurantName{
+  font-weight: bold;
+}
+.restaurant{
+  border: 2px solid black;
+  width: 400px;
+  height: 400px;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+.container{
+  display: flex;
+  flex-wrap:wrap;
+}
+.Main-container{
+  text-align: center;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

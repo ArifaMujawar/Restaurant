@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import "./App.css";
+import restaurants from "./restaurants";
+import DisplayRestaurant from "./displayRestaurant";
+const App = () => {
+ 
+  //useState
+   const [restaurantList, setRestaurantList ] = useState(restaurants.businesses)
+  //const [flag, setFlag] = useState(false)
+  let sortedRestaurants ='';
+
+  const handleClick = () => {
+   //setFlag(true)   
+    sortedRestaurants = restaurants.businesses.sort((a,b)=>{
+      return b.rating - a.rating
+    })
+    setRestaurantList([...sortedRestaurants])
+    console.log('result is ', sortedRestaurants)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Main-container">
+      <h1>List of restaurants</h1>
+      <button onClick={()=>handleClick()}>Sort by stars</button>
+       <DisplayRestaurant restaurantList ={restaurantList}/>
     </div>
   );
-}
+};
 
+//{flag ?<DisplayRestaurant />:<DisplayRestaurant results={restaurants} />}
 export default App;
